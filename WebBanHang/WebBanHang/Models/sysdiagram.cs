@@ -12,10 +12,12 @@ namespace WebBanHang.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class ImageProduct
+    public partial class sysdiagram
     {
-        public long Id { get; set; }
-        public long Stt { get; set; }
-        public string ImageSrc { get; set; }
+        public string name { get; set; }
+        public int principal_id { get; set; }
+        public int diagram_id { get; set; }
+        public Nullable<int> version { get; set; }
+        public byte[] definition { get; set; }
     }
 }
