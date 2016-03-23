@@ -14,17 +14,8 @@ namespace WebBanHang.Models
     
     public partial class ImageProduct
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public ImageProduct()
-        {
-            this.Products = new HashSet<Product>();
-        }
-    
         public long Id { get; set; }
-        public Nullable<long> Stt { get; set; }
+        public long Stt { get; set; }
         public string ImageSrc { get; set; }
-    
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Product> Products { get; set; }
     }
 }

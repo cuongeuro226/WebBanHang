@@ -26,6 +26,8 @@ namespace WebBanHang.Models
         public Nullable<bool> deliverred { get; set; }
         public Nullable<bool> comfirmed { get; set; }
         public Nullable<bool> deteled { get; set; }
+        public Nullable<System.DateTime> CreateDay { get; set; }
+        public string Address { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<DetailOrder> DetailOrders { get; set; }
