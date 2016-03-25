@@ -4,15 +4,14 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="3454c969f73f40d1b56300f02430fcd6" Name="Diagram1" ZoomLevel="98">
-        <EntityTypeShape EntityType="ShopWallpaperModel.Account" Width="1.5" PointX="5.75" PointY="4.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="ShopWallpaperModel.Category" Width="1.5" PointX="0.75" PointY="1.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="ShopWallpaperModel.sysdiagram" Width="1.5" PointX="7.375" PointY="0.75" />
-        <EntityTypeShape EntityType="ShopWallpaperModel.ImageProduct" Width="1.5" PointX="9.125" PointY="4.5" />
-        <EntityTypeShape EntityType="ShopWallpaperModel.DetailOrder" Width="1.5" PointX="8.625" PointY="6.875" />
-        <EntityTypeShape EntityType="ShopWallpaperModel.Order" Width="1.5" PointX="3.375" PointY="1" />
+      <Diagram DiagramId="3454c969f73f40d1b56300f02430fcd6" Name="Diagram1" ZoomLevel="98" DisplayType="true">
+        <EntityTypeShape EntityType="ShopWallpaperModel.Account" Width="1.5" PointX="2.75" PointY="4.75" />
+        <EntityTypeShape EntityType="ShopWallpaperModel.Category" Width="1.5" PointX="6" PointY="4.875" />
+        <EntityTypeShape EntityType="ShopWallpaperModel.DetailOrder" Width="1.5" PointX="3.5" PointY="1.25" />
+        <EntityTypeShape EntityType="ShopWallpaperModel.ImageProduct" Width="1.5" PointX="5.75" PointY="0.75" />
+        <EntityTypeShape EntityType="ShopWallpaperModel.Order" Width="1.5" PointX="0.75" PointY="5" />
+        <EntityTypeShape EntityType="ShopWallpaperModel.Product" Width="2.125" PointX="0.75" PointY="1" />
         <AssociationConnector Association="ShopWallpaperModel.FK_DetailOrder_Order" />
-        <EntityTypeShape EntityType="ShopWallpaperModel.Product" Width="1.5" PointX="0.75" PointY="5" />
         <AssociationConnector Association="ShopWallpaperModel.FK_DetailOrder_Product" />
       </Diagram>
     </edmx:Diagrams>

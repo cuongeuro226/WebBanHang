@@ -27,17 +27,26 @@ namespace WebBanHang.Models
         [AllowHtml]
         [Required(ErrorMessage = "yêu cầu nhập ô này")]
         public string Description { get; set; }
+<<<<<<< HEAD
         [Required(ErrorMessage = "yêu cầu nhập ô này")]
         public string Image { get; set; }
         [Required(ErrorMessage = "yêu cầu nhập ô này")]
+=======
+        public string Image { get; set; }
+>>>>>>> origin/master
         public Nullable<int> QuantityAvailable { get; set; }
         [Required(ErrorMessage = "yêu cầu nhập ô này")]
         public Nullable<decimal> Price { get; set; }
         [Required(ErrorMessage = "yêu cầu nhập ô này")]
         public Nullable<bool> IsTop { get; set; }
+<<<<<<< HEAD
         [Required(ErrorMessage = "yêu cầu nhập ô này")]
         public long Category { get; set; }
 
+=======
+        public long Category { get; set; }
+    
+>>>>>>> origin/master
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<DetailOrder> DetailOrders { get; set; }
     }
