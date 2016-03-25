@@ -17,7 +17,7 @@ namespace WebBanHang.Controllers
         // GET: Products
         public ActionResult Index()
         {
-            var products = db.Products.Include(p => p.Category1).Include(p => p.ImageProduct);
+            var products = db.Products;
             return View(products.ToList());
         }
 
@@ -40,7 +40,6 @@ namespace WebBanHang.Controllers
         public ActionResult Create()
         {
             ViewBag.Category = new SelectList(db.Categories, "Id", "Name");
-            ViewBag.Image = new SelectList(db.ImageProducts, "Id", "ImageSrc");
             return View();
         }
 
@@ -59,7 +58,6 @@ namespace WebBanHang.Controllers
             }
 
             ViewBag.Category = new SelectList(db.Categories, "Id", "Name", product.Category);
-            ViewBag.Image = new SelectList(db.ImageProducts, "Id", "ImageSrc", product.Image);
             return View(product);
         }
 
@@ -76,7 +74,6 @@ namespace WebBanHang.Controllers
                 return HttpNotFound();
             }
             ViewBag.Category = new SelectList(db.Categories, "Id", "Name", product.Category);
-            ViewBag.Image = new SelectList(db.ImageProducts, "Id", "ImageSrc", product.Image);
             return View(product);
         }
 
@@ -94,7 +91,6 @@ namespace WebBanHang.Controllers
                 return RedirectToAction("Index");
             }
             ViewBag.Category = new SelectList(db.Categories, "Id", "Name", product.Category);
-            ViewBag.Image = new SelectList(db.ImageProducts, "Id", "ImageSrc", product.Image);
             return View(product);
         }
 

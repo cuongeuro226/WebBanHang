@@ -1,70 +1,29 @@
 ﻿@model IEnumerable<WebBanHang.Models.Product>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Sản phẩm";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
-
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Name)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Description)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.QuantityAvailable)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Price)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.IsTop)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Category1.Name)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ImageProduct.ImageSrc)
-        </th>
-        <th></th>
-    </tr>
-
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Description)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.QuantityAvailable)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Price)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.IsTop)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Category1.Name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ImageProduct.ImageSrc)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
-        </td>
-    </tr>
-}
-
-</table>
+<h2>Sản phẩm</h2>
+<div class="section group">
+    @foreach (var item in Model)
+    {
+        <div class="grid_1_of_4 images_1_of_4">
+            <a href="Details?id=@item.Id">
+                <img src="../../Content/Products/images/feature-pic1.jpg" alt=""/>
+            </a>
+            <h2>@item.Name </h2>
+            <div class="price-details">
+                <div class="price-number">
+                    <p><span class="rupees">$@item.Price</span></p>
+                </div>
+                <div class="add-cart">
+                    <h4><a href="preview.html">Add to Cart</a></h4>
+                </div>
+            </div>
+            <div class="clear"></div>
+        </div>
+        
+    }
+</div>

@@ -44,6 +44,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="dotMemory.Unit, Version=103.0.0.0, Culture=neutral, PublicKeyToken=1010a0d8d6380325, processorArchitecture=MSIL">
+      <HintPath>..\packages\JetBrains.dotMemoryUnit.2.1.20150828.125449\Lib\dotMemory.Unit.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.AI.Agent.Intercept, Version=1.2.0.1011, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.1.2.0\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
       <Private>True</Private>
@@ -198,12 +202,15 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeAdminController.cs" />
+    <Compile Include="Controllers\CartController.cs" />
+    <Compile Include="Controllers\ProductsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Account.cs">
       <DependentUpon>SalesEntities.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Cart.cs" />
     <Compile Include="Models\Category.cs">
       <DependentUpon>SalesEntities.tt</DependentUpon>
     </Compile>
@@ -234,9 +241,6 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>SalesEntities.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="Models\sysdiagram.cs">
-      <DependentUpon>SalesEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -694,6 +698,75 @@
     <Content Include="Content\Admin\js\morris-data.js" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Products\about.html" />
+    <Content Include="Content\Products\contact.html" />
+    <Content Include="Content\Products\css\easy-responsive-tabs.css" />
+    <Content Include="Content\Products\css\global.css" />
+    <Content Include="Content\Products\css\slider.css" />
+    <Content Include="Content\Products\css\style.css" />
+    <Content Include="Content\Products\delivery.html" />
+    <Content Include="Content\Products\images\about_img.jpg" />
+    <Content Include="Content\Products\images\arrow-next.png" />
+    <Content Include="Content\Products\images\arrow-prev.png" />
+    <Content Include="Content\Products\images\arrow_up.png" />
+    <Content Include="Content\Products\images\compare.png" />
+    <Content Include="Content\Products\images\delivery-img1.jpg" />
+    <Content Include="Content\Products\images\delivery-img2.jpg" />
+    <Content Include="Content\Products\images\delivery-img3.jpg" />
+    <Content Include="Content\Products\images\dribbble.png" />
+    <Content Include="Content\Products\images\drop_arrow-hover.png" />
+    <Content Include="Content\Products\images\drop_arrow.png" />
+    <Content Include="Content\Products\images\facebook.png" />
+    <Content Include="Content\Products\images\feature-pic1.jpg" />
+    <Content Include="Content\Products\images\feature-pic2.jpg" />
+    <Content Include="Content\Products\images\feature-pic3.jpg" />
+    <Content Include="Content\Products\images\feature-pic4.jpg" />
+    <Content Include="Content\Products\images\linkedin.png" />
+    <Content Include="Content\Products\images\list-img.png" />
+    <Content Include="Content\Products\images\logo.png" />
+    <Content Include="Content\Products\images\new-pic1.jpg" />
+    <Content Include="Content\Products\images\new-pic2.jpg" />
+    <Content Include="Content\Products\images\new-pic3.jpg" />
+    <Content Include="Content\Products\images\new-pic4.jpg" />
+    <Content Include="Content\Products\images\newsimg1.jpg" />
+    <Content Include="Content\Products\images\newsimg2.jpg" />
+    <Content Include="Content\Products\images\newsimg3.jpg" />
+    <Content Include="Content\Products\images\preview.jpg" />
+    <Content Include="Content\Products\images\price-rating.png" />
+    <Content Include="Content\Products\images\productslide-1.jpg" />
+    <Content Include="Content\Products\images\productslide-2.jpg" />
+    <Content Include="Content\Products\images\productslide-3.jpg" />
+    <Content Include="Content\Products\images\productslide-4.jpg" />
+    <Content Include="Content\Products\images\productslide-5.jpg" />
+    <Content Include="Content\Products\images\productslide-6.jpg" />
+    <Content Include="Content\Products\images\quality-rating.png" />
+    <Content Include="Content\Products\images\search.png" />
+    <Content Include="Content\Products\images\skype.png" />
+    <Content Include="Content\Products\images\slide-1-image.png" />
+    <Content Include="Content\Products\images\slide-2-image.jpg" />
+    <Content Include="Content\Products\images\slide-3-image.jpg" />
+    <Content Include="Content\Products\images\tag.png" />
+    <Content Include="Content\Products\images\thumbnailslide-1.jpg" />
+    <Content Include="Content\Products\images\thumbnailslide-2.jpg" />
+    <Content Include="Content\Products\images\thumbnailslide-3.jpg" />
+    <Content Include="Content\Products\images\thumbnailslide-4.jpg" />
+    <Content Include="Content\Products\images\thumbnailslide-5.jpg" />
+    <Content Include="Content\Products\images\thumbnailslide-6.jpg" />
+    <Content Include="Content\Products\images\twitter.png" />
+    <Content Include="Content\Products\images\value-rating.png" />
+    <Content Include="Content\Products\images\wishlist.png" />
+    <Content Include="Content\Products\index.html" />
+    <Content Include="Content\Products\js\easing.js" />
+    <Content Include="Content\Products\js\easyResponsiveTabs.js" />
+    <Content Include="Content\Products\js\jquery-1.7.2.min.js" />
+    <Content Include="Content\Products\js\jquery.accordion.js" />
+    <Content Include="Content\Products\js\jquery.easing.js" />
+    <Content Include="Content\Products\js\move-top.js" />
+    <Content Include="Content\Products\js\script.js" />
+    <Content Include="Content\Products\js\slides.min.jquery.js" />
+    <Content Include="Content\Products\js\startstop-slider.js" />
+    <Content Include="Content\Products\news.html" />
+    <Content Include="Content\Products\preview.html" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -1039,6 +1112,8 @@
     <Content Include="Content\Admin\less\mixins.less" />
     <Content Include="Content\Admin\less\sb-admin-2.less" />
     <Content Include="Content\Admin\less\variables.less" />
+    <Content Include="Content\Products\font\Amble-Regular-webfont.ttf" />
+    <Content Include="Content\Products\images\Thumbs.db" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -1059,13 +1134,18 @@
       <DependentUpon>Web.config</DependentUpon>
     </Content>
     <Content Include="Views\Web.config" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Products\Create.cshtml" />
+    <Content Include="Views\Products\Delete.cshtml" />
+    <Content Include="Views\Products\Details.cshtml" />
+    <Content Include="Views\Products\Edit.cshtml" />
+    <Content Include="Views\Products\Index.cshtml" />
+    <Content Include="Views\Cart\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Models\" />
     <Folder Include="Content\User\" />
-    <Folder Include="Controllers\" />
-    <Folder Include="Views\Shared\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

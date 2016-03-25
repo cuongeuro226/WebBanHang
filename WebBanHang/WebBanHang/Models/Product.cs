@@ -23,13 +23,12 @@ namespace WebBanHang.Models
         public long Id { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
-        public long Image { get; set; }
+        public string Image { get; set; }
         public Nullable<int> QuantityAvailable { get; set; }
         public Nullable<decimal> Price { get; set; }
         public Nullable<bool> IsTop { get; set; }
-        public Nullable<long> Category { get; set; }
+        public long Category { get; set; }
     
-        public virtual Category Category1 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<DetailOrder> DetailOrders { get; set; }
     }
