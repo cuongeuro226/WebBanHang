@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>SB Admin 2 - Bootstrap Admin Theme</title>
+    @RenderSection("title",true)
     <!-- Bootstrap Core CSS -->
     <link href="/Content/Admin/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- MetisMenu CSS -->
@@ -21,12 +21,29 @@
     <link href="/Content/Admin/bower_components/morrisjs/morris.css" rel="stylesheet">
     <!-- Custom Fonts -->
     <link href="/Content/Admin/bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <!-- jQuery -->
+    <script src="/Content/Admin/bower_components/jquery/dist/jquery.min.js"></script>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="/Content/Admin/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <!-- Metis Menu Plugin JavaScript -->
+    <script src="/Content/Admin/bower_components/metisMenu/dist/metisMenu.min.js"></script>
+    <!-- Morris Charts JavaScript -->
+    <script src="/Content/Admin/bower_components/raphael/raphael-min.js"></script>
+    <script type="text/javascript" src="~/Content/Admin/js/jquery-1.7.2.min.js"></script>
+    <script src="/Content/Admin/bower_components/morrisjs/morris.min.js"></script>
+ 
+    <!-- Custom Theme JavaScript -->
+    <script src="/Content/Admin/dist/js/sb-admin-2.js"></script>
+
+    <script src="/Content/Admin/js/plugin/ckfinder/ckfinder.js"></script>
+    <script src="/Content/Admin/js/plugin/ckeditor/ckeditor.js"></script>
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+    
 </head>
 <body>
 
@@ -40,7 +57,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="/Admin/Home/Index">Admin ShopWallpaper</a>
+                <a class="navbar-brand" href="/Admin">Admin ShopWallpaper</a>
             </div>
             <!-- /.navbar-header -->
             <ul class="nav navbar-top-links navbar-right">
@@ -112,7 +129,7 @@
                     <ul class="dropdown-menu dropdown-user">
 
                         <li>
-                            <a href="login.html"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                            <a href="/Admin/Logout"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
                         </li>
                     </ul>
                     <!-- /.dropdown-user -->
@@ -128,7 +145,10 @@
                             <a href="/Admin"><i class="fa fa-dashboard fa-fw"></i> Quản lý sản phẩm </a>
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-dashboard fa-fw"></i> Quản lý đơn đặt hàng</a>
+                            <a href="/Admin/Category"><i class="fa fa-dashboard fa-fw"></i> Quản lý loại sản phẩm </a>
+                        </li>
+                        <li>
+                            <a href="/Admin/Order"><i class="fa fa-dashboard fa-fw"></i> Quản lý đơn đặt hàng</a>
                             @*<ul class="nav nav-second-level">
                                     <li>
                                         <a href="flot.html">Flot Charts</a>
@@ -140,7 +160,7 @@
                             <!-- /.nav-second-level -->
                         </li>
                         <li>
-                            <a href="index.html"><i class="fa fa-dashboard fa-fw"></i> Đăng xuất </a>
+                            <a href="/Admin/Logout"><i class="fa fa-dashboard fa-fw"></i> Đăng xuất </a>
                         </li>
                     </ul>
                 </div>
@@ -148,7 +168,7 @@
             </div>
             <!-- /.navbar-static-side -->
         </nav>
-        <div id="page-wrapper">
+        <div id="page-wrapper" style="padding-bottom:10px; padding-top:10px">
 
             @RenderBody()
 
@@ -157,20 +177,10 @@
     </div>
 
     <!-- /#wrapper -->
-    <!-- jQuery -->
-    <script src="/Content/Admin/bower_components/jquery/dist/jquery.min.js"></script>
-    <!-- Bootstrap Core JavaScript -->
-    <script src="/Content/Admin/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-    <!-- Metis Menu Plugin JavaScript -->
-    <script src="/Content/Admin/bower_components/metisMenu/dist/metisMenu.min.js"></script>
-    <!-- Morris Charts JavaScript -->
-    <script src="/Content/Admin/bower_components/raphael/raphael-min.js"></script>
-    <script src="/Content/Admin/bower_components/morrisjs/morris.min.js"></script>
-    <script src="/Content/Admin/js/morris-data.js"></script>
-    <!-- Custom Theme JavaScript -->
-    <script src="../dist/js/sb-admin-2.js"></script>
-    @RenderSection("scriptcss", false);
+    
+    @RenderSection("script", false)
 </body>
+
 </html>
 
 

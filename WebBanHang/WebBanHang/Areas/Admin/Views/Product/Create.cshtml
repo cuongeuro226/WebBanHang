@@ -1,0 +1,167 @@
+﻿@{
+    @model WebBanHang.Models.Product
+    var mes = (String)ViewBag.messagerError;
+    ViewBag.Title = "Create";
+    var cate = (IEnumerable<WebBanHang.Models.Category>)@ViewBag.cate;
+    Layout = "~/Areas/Admin/Views/Shared/_layout_Admin.cshtml";
+}
+
+@section title
+{
+    <title>Tạo mới sản phẩm - Admin</title>
+}
+@section script{
+    <script>
+        $(document).ready(function () {
+            //$('#asd').on("click", function () {
+            //    var n = $("#Image").val();
+            $("#btnImage").on('click', function () {
+                
+                var finder = new CKFinder();
+                finder.selectActionFunction=function (url) {
+                    $("#txtImage").val(url);
+                    $("#srcimage").attr("src", url);
+                };
+                finder.popup();
+
+            })
+            var edi = CKEDITOR.replace('dercrip', { customConfig: '/Content/Admin/js/plugin/ckeditor/config.js' })
+ 
+
+            //})
+
+            //$('#Image1').change(function (event) {
+            //    var filename = $('#Image1').val();
+            //    filename = partnameFile(filename);
+            //    var fullpathfile = "/Content/Image/" + filename
+            //    var n = URL.createObjectURL(event.target.files[0])
+            //    $('#Image').val(n);
+            //})
+
+        })
+
+
+        //function partnameFile(filename) {
+        //    for (var i = filename.length; i > 0; i--) {
+        //        if (filename[i] == '\\') {
+        //            filename = filename.substring(i + 1, filename.length);
+
+        //            return filename;
+        //            break;
+        //        }
+        //    }
+        //}
+
+    </script>
+}
+
+
+
+
+@using (Html.BeginForm("Create", "Product", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>Tạo mới sản phẩm</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = @mes })
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Id, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Id, new { htmlAttributes = new { @class = "form-control", ReadOnly = "ReadOnly" } })
+
+            </div>
+        </div>
+         
+        <div class="form-group">
+            @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextAreaFor(model => model.Description, new { @class = "form-control", Styles = "width:100%", id= "dercrip" })
+                @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        
+
+        <div class="form-group"> 
+            <label class="control-label col-md-2">hình của sản phẩm</label>  
+            <div class="col-xs-12 col-md-4">
+                <img id="srcimage" src=@Model.Image class="col-xs-12" />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2">Đường dẫn hình ảnh hiện tại</label>  
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Image, new { htmlAttributes = new { @class = "form-control", Readonly = "readonly",id= "txtImage" } })
+                <a id="btnImage" href="#" >chon anh</a>
+                @Html.ValidationMessageFor(model => model.Image, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.QuantityAvailable, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.QuantityAvailable, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.QuantityAvailable, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Price, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Price, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Price, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.IsTop, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <div class="checkbox">
+                    @*@Html.EditorFor(model => model.IsTop)*@
+                    @{var li = new SelectListItem { Text = "Chọn", Value = "true" }; var l2 = new SelectListItem { Text = "Không chọn", Value = "false" }; var lis = new List<SelectListItem>(); lis.Add(li); lis.Add(l2);}
+                    @Html.DropDownListFor(model => model.IsTop, new SelectList(lis, "Value", "Text"), new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.IsTop, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Category, "Category", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @{if (cate != null)
+                    {
+                        @Html.DropDownListFor(model => model.Category, new SelectList(cate.ToList(), "Id", "Name"), new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.Category, "", new { @class = "text-danger" })
+                    }
+                    else
+                    {
+                        @Html.EditorFor(model => model.Category, new { @class = "form-control", Readonly = "Readonly" })
+
+                    }
+                }
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+
+}
+
+<div>
+    @Html.ActionLink("Trở về", "Index", "HomeAdmin")
+</div>

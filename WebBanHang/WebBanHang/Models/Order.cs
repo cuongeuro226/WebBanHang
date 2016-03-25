@@ -23,9 +23,9 @@ namespace WebBanHang.Models
         public long Id { get; set; }
         public Nullable<long> Detail { get; set; }
         public Nullable<decimal> SumCost { get; set; }
-        public Nullable<bool> deliverred { get; set; }
-        public Nullable<bool> comfirmed { get; set; }
-        public Nullable<bool> deteled { get; set; }
+        public bool deliverred { get; set; }
+        public bool comfirmed { get; set; }
+        public bool deteled { get; set; }
         public Nullable<System.DateTime> CreateDay { get; set; }
         public string Address { get; set; }
     

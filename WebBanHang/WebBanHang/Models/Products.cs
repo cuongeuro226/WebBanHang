@@ -14,23 +14,35 @@ namespace WebBanHang.Models
         public Products()
         {
             db = new ShopWallpaperEntities();
+            //db.Configuration.ProxyCreationEnabled = false;
         }
 
         public IEnumerable<Product> GetAll()
         {
-            return db.Products.ToList();
+            IEnumerable < Product > result= db.Products.ToList();
+            
+            return result;
+
         }
+
+        //public IEnumerable<Product> GetBySearchKeyWord(string value)
+        //{
+        //    IEnumerable<Product> result = db.Products.Contains( value);
+
+        //    return result;
+
+        //}
 
         public  Product GetById(long id)
         {
             return db.Products.Where(m => m.Id == id).SingleOrDefault();
         }
 
-        public int Insert( Product obj)
+        public Product Insert( Product obj)
         {
-            db.Products.Add(obj);
-            return db.SaveChanges();
-
+            Product p= db.Products.Add(obj);
+              db.SaveChanges();
+            return p;
         }
 
         public int Delete( Product obj)
@@ -39,6 +51,13 @@ namespace WebBanHang.Models
             return db.SaveChanges();
 
         }
+        public void Update(Product obj)
+        {
+            Product pro = GetById(obj.Id);
+            db.Entry(pro).CurrentValues.SetValues(obj);
+            db.SaveChanges();
+        }
+
 
 
     }

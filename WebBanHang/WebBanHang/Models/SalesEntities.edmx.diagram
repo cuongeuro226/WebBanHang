@@ -7,14 +7,13 @@
       <Diagram DiagramId="3454c969f73f40d1b56300f02430fcd6" Name="Diagram1" ZoomLevel="98">
         <EntityTypeShape EntityType="ShopWallpaperModel.Account" Width="1.5" PointX="5.75" PointY="4.75" IsExpanded="true" />
         <EntityTypeShape EntityType="ShopWallpaperModel.Category" Width="1.5" PointX="0.75" PointY="1.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="ShopWallpaperModel.DetailOrder" Width="1.5" PointX="5.25" PointY="1.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="ShopWallpaperModel.Order" Width="1.5" PointX="3" PointY="5.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="ShopWallpaperModel.Product" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
-        <AssociationConnector Association="ShopWallpaperModel.FK_Product_Category" ManuallyRouted="false" />
-        <AssociationConnector Association="ShopWallpaperModel.FK_DetailOrder_Order" ManuallyRouted="false" />
-        <AssociationConnector Association="ShopWallpaperModel.FK_DetailOrder_Product" ManuallyRouted="false" />
         <EntityTypeShape EntityType="ShopWallpaperModel.sysdiagram" Width="1.5" PointX="7.375" PointY="0.75" />
         <EntityTypeShape EntityType="ShopWallpaperModel.ImageProduct" Width="1.5" PointX="9.125" PointY="4.5" />
+        <EntityTypeShape EntityType="ShopWallpaperModel.DetailOrder" Width="1.5" PointX="8.625" PointY="6.875" />
+        <EntityTypeShape EntityType="ShopWallpaperModel.Order" Width="1.5" PointX="3.375" PointY="1" />
+        <AssociationConnector Association="ShopWallpaperModel.FK_DetailOrder_Order" />
+        <EntityTypeShape EntityType="ShopWallpaperModel.Product" Width="1.5" PointX="0.75" PointY="5" />
+        <AssociationConnector Association="ShopWallpaperModel.FK_DetailOrder_Product" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

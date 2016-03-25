@@ -1,0 +1,107 @@
+﻿@model WebBanHang.Models.Order
+
+@{
+    var mes = (String)@ViewBag.messagerError;
+    ViewBag.Title = "Detail";
+    Layout = "~/Areas/Admin/Views/Shared/_layout_Admin.cshtml";
+}
+@section Title{
+    <title>Chi tiết hóa đơn</title>
+    }
+ 
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4> hóa đơn - MHD:@Model.Id</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = @mes })
+        <div class="form-group">
+            @Html.LabelFor(model => model.Id, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Id, new { htmlAttributes = new { @class = "form-control", Readonly = "readonly" } })
+
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Detail, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Detail, new { htmlAttributes = new { @class = "form-control", Readonly = "readonly" } })
+
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.SumCost, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.SumCost, new { htmlAttributes = new { @class = "form-control", Readonly = "readonly" } })
+
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.deliverred, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <div class="checkbox">
+                    @Html.EditorFor(model => model.deliverred, new { Styles = "margin-left:0px" })
+                    @Html.ValidationMessageFor(model => model.deliverred, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.comfirmed, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <div class="checkbox">
+                    @Html.EditorFor(model => model.comfirmed, new { Styles = "margin-left:0px" })
+                    @Html.ValidationMessageFor(model => model.comfirmed, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.deteled, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <div class="checkbox">
+                    @Html.EditorFor(model => model.deteled, new { Styles = "margin-left:0px" })
+                    @Html.ValidationMessageFor(model => model.deteled, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.CreateDay, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.CreateDay, new { htmlAttributes = new { @class = "form-control", Readonly = "readonly" } })
+
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Address, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Address, new { htmlAttributes = new { @class = "form-control", Readonly = "readonly" } })
+
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Lưu" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+    <div class="form-horizontal">
+        <h4> hóa đơn - MHD:@Model.Id</h4>
+         
+        
+        @{Html.RenderAction("DetailOrder", "Order", new { id = @Model.Detail });}
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
